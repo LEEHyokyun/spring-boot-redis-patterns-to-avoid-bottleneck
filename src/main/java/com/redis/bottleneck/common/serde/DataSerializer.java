@@ -20,7 +20,7 @@ public final class DataSerializer {
         }
     }
 
-    //역직렬화
+    //class object 형태로 역직렬화
     public static <T> T deserializeOrNull(String data, Class<T> clazz){
         try{
             return objcetMapper.readValue(data, clazz);
