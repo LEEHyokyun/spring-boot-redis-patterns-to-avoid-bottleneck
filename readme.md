@@ -10,6 +10,13 @@
 - redis 사상 및 목적에 맞는, 그러면서도 병목 현상을 줄이기 위한 다양한 pattern 적용 방안
 - spring boot project
 
+
+## 3. Architecturing
+
+- domain models
+
+![img_2.png](img_2.png)
+
 ## 3. Redis cache for what?
 
 > Redis Cache
