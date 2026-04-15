@@ -1,7 +1,7 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '3.5.0' //boot BOM 자동 등록
-    id 'io.spring.dependency-management' version '1.1.6'\
+    id 'org.springframework.boot' version '3.5.6' //boot BOM 자동 등록
+    id 'io.spring.dependency-management' version '1.1.6'
 }
 
 group = 'spring-boot-redis-patterns-to-avoid-bottleneck'
@@ -38,6 +38,26 @@ allprojects {
         * */
         implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
         runtimeOnly 'com.mysql:mysql-connector-j'
+
+        /*
+        * aop
+        * */
+        implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+        /*
+        * Redis
+        * */
+        implementation 'org.springframework.boot:spring-boot-starter-data-redis'
+
+        /*
+        * appended Utils
+        * */
+        implementation 'com.google.guava:guava:33.4.8-jre'
+
+        /*
+        * Test Containers for test comfortability
+        * */
+        implementation 'org.springframework.boot:spring-boot-testcontainers'
 
         /*
         * data serializer - JsonProcessingException / logging

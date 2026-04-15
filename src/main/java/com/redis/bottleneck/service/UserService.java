@@ -1,9 +1,9 @@
-package com.cicd.jenkins.user.service;
+package com.redis.bottleneck.service;
 
-import com.cicd.jenkins.user.model.entity.User;
-import com.cicd.jenkins.user.model.request.UserCreateRequest;
-import com.cicd.jenkins.user.model.response.UserResponse;
-import com.cicd.jenkins.user.repository.UserRepository;
+import com.redis.bottleneck.model.entity.User;
+import com.redis.bottleneck.model.request.UserCreateRequest;
+import com.redis.bottleneck.model.response.UserResponse;
+import com.redis.bottleneck.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

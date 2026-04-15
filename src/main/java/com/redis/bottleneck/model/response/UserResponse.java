@@ -1,7 +1,7 @@
-package com.cicd.jenkins.user.model.response;
+package com.redis.bottleneck.model.response;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.cicd.jenkins.user.model.entity.User;
+import com.redis.bottleneck.model.entity.User;
 import lombok.Getter;
 import lombok.ToString;
 

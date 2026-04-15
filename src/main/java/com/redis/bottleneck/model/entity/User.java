@@ -1,4 +1,4 @@
-package com.cicd.jenkins.user.model.entity;
+package com.redis.bottleneck.model.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;

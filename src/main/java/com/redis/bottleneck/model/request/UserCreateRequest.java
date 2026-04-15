@@ -1,4 +1,4 @@
-package com.cicd.jenkins.user.model.request;
+package com.redis.bottleneck.model.request;
 
 import lombok.Getter;
 import lombok.ToString;

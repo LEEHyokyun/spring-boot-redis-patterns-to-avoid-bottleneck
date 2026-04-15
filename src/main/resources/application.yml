@@ -1,11 +1,11 @@
 server:
-  port: 8090
+  port: 8080
 
 spring:
   application:
-    name: cicd-jenkins-todeploy
+    name: spring-boot-redis-patterns-to-avoid-bottleneck
   datasource:
-    url: jdbc:mysql://127.0.0.1:3306/users #cloud-native-cicd-jenkins-tobuild
+    url: jdbc:mysql://127.0.0.1:3306/
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: root
     password: root
@@ -20,9 +20,9 @@ spring:
   data:
 #    mongodb:
 #      database: cyberops
-#    redis:
-#      host: localhost
-#      port: 6379
+    redis:
+      host: localhost
+      port: 6379
 
 logging:
   level:

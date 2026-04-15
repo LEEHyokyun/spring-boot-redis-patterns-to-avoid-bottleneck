@@ -1,6 +1,6 @@
-package com.cicd.jenkins.user.repository;
+package com.redis.bottleneck.repository;
 
-import com.cicd.jenkins.user.model.entity.User;
+import com.redis.bottleneck.model.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

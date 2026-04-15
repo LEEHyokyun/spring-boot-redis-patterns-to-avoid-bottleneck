@@ -1,8 +1,8 @@
-package com.cicd.jenkins.user.controller;
+package com.redis.bottleneck.controller;
 
-import com.cicd.jenkins.user.model.request.UserCreateRequest;
-import com.cicd.jenkins.user.model.response.UserResponse;
-import com.cicd.jenkins.user.service.UserService;
+import com.redis.bottleneck.model.request.UserCreateRequest;
+import com.redis.bottleneck.model.response.UserResponse;
+import com.redis.bottleneck.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
