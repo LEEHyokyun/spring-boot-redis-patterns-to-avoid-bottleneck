@@ -1,0 +1,9 @@
+spring:
+  jpa:
+    show-sql: true #SQL 실행문 로그로 기록
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: true #pretty format
+        highlight_sql : true #colored

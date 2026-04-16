@@ -55,9 +55,15 @@ allprojects {
         implementation 'com.google.guava:guava:33.4.8-jre'
 
         /*
-        * Test Containers for test comfortability
+        * Test Containers for test comfortability(*datasource 주입 by serviceconnection)
         * */
         implementation 'org.springframework.boot:spring-boot-testcontainers'
+
+        /*
+        * mysql test container
+        * */
+        testImplementation 'org.testcontainers:junit-jupiter'
+        testImplementation 'org.testcontainers:mysql'
 
         /*
         * data serializer - JsonProcessingException / logging
