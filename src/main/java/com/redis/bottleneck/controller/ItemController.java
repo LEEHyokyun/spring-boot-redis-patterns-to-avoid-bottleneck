@@ -8,10 +8,7 @@ import com.redis.bottleneck.model.response.ItemPageResponse;
 import com.redis.bottleneck.model.response.ItemResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.repository.query.Param;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -31,8 +28,8 @@ public class ItemController {
     @GetMapping("/cache-strategy/{cacheStrategy}/items")
     public ItemPageResponse readAll(
             @PathVariable CacheStrategy cacheStrategy,
-            @PathVariable Long page,
-            @PathVariable Long pageSize
+            @RequestParam Long page,
+            @RequestParam Long pageSize
     ){
         return this.getCacheService(cacheStrategy).readAll(page, pageSize);
     }
@@ -40,8 +37,8 @@ public class ItemController {
     @GetMapping("/cache-strategy/{cacheStrategy}/items/infinite-scroll")
     public ItemPageResponse readAllInfiniteScroll(
             @PathVariable CacheStrategy cacheStrategy,
-            @PathVariable(required = false) Long lastItemId,
-            @PathVariable Long pageSize
+            @RequestParam(required = false) Long lastItemId,
+            @RequestParam Long pageSize
     ){
         return this.getCacheService(cacheStrategy).readAllInfiniteScroll(lastItemId, pageSize);
     }
@@ -49,7 +46,7 @@ public class ItemController {
     @PostMapping("/cache-strategy/{cacheStrategy}/items")
     public ItemResponse create(
             @PathVariable CacheStrategy cacheStrategy,
-            @PathVariable ItemCreateRequest itemCreateRequest
+            @RequestBody ItemCreateRequest itemCreateRequest
     ){
         return this.getCacheService(cacheStrategy).create(itemCreateRequest);
     }
@@ -58,12 +55,12 @@ public class ItemController {
     public ItemResponse update(
             @PathVariable CacheStrategy cacheStrategy,
             @PathVariable Long itemId,
-            @PathVariable ItemUpdateRequest itemUpdateRequest
+            @RequestBody ItemUpdateRequest itemUpdateRequest
     ){
         return this.getCacheService(cacheStrategy).update(itemId, itemUpdateRequest);
     }
 
-    @PostMapping("/cache-strategy/{cacheStrategy}/items/{itemId}")
+    @DeleteMapping("/cache-strategy/{cacheStrategy}/items/{itemId}")
     public void delete(
             @PathVariable CacheStrategy cacheStrategy,
             @PathVariable Long itemId

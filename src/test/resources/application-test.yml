@@ -7,3 +7,4 @@ spring:
       hibernate:
         format_sql: true #pretty format
         highlight_sql : true #colored
+

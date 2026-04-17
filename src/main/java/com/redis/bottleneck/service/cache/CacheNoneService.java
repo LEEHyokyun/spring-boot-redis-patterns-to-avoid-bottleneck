@@ -8,6 +8,7 @@ import com.redis.bottleneck.model.request.ItemCreateRequest;
 import com.redis.bottleneck.model.request.ItemUpdateRequest;
 import com.redis.bottleneck.model.response.ItemPageResponse;
 import com.redis.bottleneck.model.response.ItemResponse;
+import com.redis.bottleneck.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -15,7 +16,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class CacheNoneService implements CacheService {
 
-    private final CacheService cacheService;
+    private final ItemService itemService;
 
     @Override
     @Cacheable(
@@ -25,7 +26,7 @@ public class CacheNoneService implements CacheService {
             ttl = 5
     )
     public ItemResponse read(Long itemId) {
-        return cacheService.read(itemId);
+        return itemService.read(itemId);
     }
 
     @Override
@@ -36,7 +37,7 @@ public class CacheNoneService implements CacheService {
             ttl = 5
     )
     public ItemPageResponse readAll(Long page, Long pageSize) {
-        return cacheService.readAll(page, pageSize);
+        return itemService.readAll(page, pageSize);
     }
 
     @Override
@@ -47,14 +48,13 @@ public class CacheNoneService implements CacheService {
             ttl = 5
     )
     public ItemPageResponse readAllInfiniteScroll(Long lastItemId, Long pageSize) {
-        return cacheService.readAllInfiniteScroll(lastItemId, pageSize);
+        return itemService.readAllInfiniteScroll(lastItemId, pageSize);
     }
 
     @Override
     public ItemResponse create(ItemCreateRequest itemCreateRequest) {
-        return cacheService.create(itemCreateRequest);
+        return itemService.create(itemCreateRequest);
     }
-
 
     @Override
     @CachePut(
@@ -64,7 +64,7 @@ public class CacheNoneService implements CacheService {
             ttl = 5
     )
     public ItemResponse update(Long itemId, ItemUpdateRequest itemUpdateRequest) {
-        return cacheService.update(itemId, itemUpdateRequest);
+        return itemService.update(itemId, itemUpdateRequest);
     }
 
     @Override
@@ -75,12 +75,12 @@ public class CacheNoneService implements CacheService {
             ttl = 5
     )
     public void delete(long itemId) {
-        cacheService.delete(itemId);
+        itemService.delete(itemId);
     }
 
     @Override
     public long count() {
-        return cacheService.count();
+        return itemService.count();
     }
 
     @Override

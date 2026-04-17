@@ -41,7 +41,7 @@ public class CacheAspect {
         Class returnType = this.findReturnType(joinPoint);
 
         try{
-            log.info("[CacheAspect handleCacheable INFO : key = {}]", key);
+                log.info("[CacheAspect handleCacheable INFO : key = {}]", key);
             return cacheHandler.fetch(
                     key,
                     ttl,
