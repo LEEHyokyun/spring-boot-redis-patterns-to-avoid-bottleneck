@@ -25,7 +25,7 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 
 @Slf4j
 @DataJpaTest //table 생성 = entity
-@AutoConfigureTestDatabase(replace = NONE)
+@AutoConfigureTestDatabase(replace = NONE) //H2가 아닌 MySQL 환경을 DB로 그대로 유지.
 @ActiveProfiles("test")
 class ArticleRepositoryTest {
 
