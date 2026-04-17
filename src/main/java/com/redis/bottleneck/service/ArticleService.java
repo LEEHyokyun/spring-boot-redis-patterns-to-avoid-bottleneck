@@ -21,7 +21,7 @@ public class ArticleService {
         );
     }
 
-    public ArticlePageResponse findAll(Long boardId, Long page, Long pageSize){
+    public ArticlePageResponse readAll(Long boardId, Long page, Long pageSize){
         return ArticlePageResponse.from(
                 articleRepository.findAll(boardId, page, pageSize),
                 articleRepository.count()
