@@ -1,6 +1,6 @@
 package com.redis.bottleneck.etc;
 
-import com.redis.bottleneck.utils.RedisTestContainerSupport;
+import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
@@ -9,7 +9,7 @@ import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
 
 @DataRedisTest
 @Slf4j
-public class RedisTest extends RedisTestContainerSupport {
+public class RedisTest extends RedisTestContainerSupportUtil {
 
     @DisplayName("Redis Container Mock Test")
     @Test

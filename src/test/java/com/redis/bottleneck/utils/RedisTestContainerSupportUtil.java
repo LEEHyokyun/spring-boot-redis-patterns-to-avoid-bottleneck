@@ -2,7 +2,6 @@ package com.redis.bottleneck.utils;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.DynamicPropertyRegistry;
 import org.springframework.test.context.DynamicPropertySource;
@@ -16,7 +15,7 @@ import org.testcontainers.junit.jupiter.Testcontainers;
 * 의존성 설정을 통해 container 환경을 구성할 수도 있지만, 좀 더 간편화하기 위함
 * */
 @Testcontainers
-public class RedisTestContainerSupport {
+public class RedisTestContainerSupportUtil {
 
     @Container
     static GenericContainer<?> redisContainer = new GenericContainer<>("redis:8.2.1")
