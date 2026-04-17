@@ -13,6 +13,10 @@
 
 ## 3. Architecturing
 
+- Cache Strategies
+
+![img_4.png](img_4.png)
+
 - domain models
 
 ![img_2.png](img_2.png)
