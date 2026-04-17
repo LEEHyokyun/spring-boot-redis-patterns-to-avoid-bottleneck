@@ -3,6 +3,7 @@ package com.redis.bottleneck.utils;
 import com.redis.bottleneck.common.cache.aop.CacheStrategy;
 import com.redis.bottleneck.model.request.ItemCreateRequest;
 import com.redis.bottleneck.model.request.ItemUpdateRequest;
+import com.redis.bottleneck.model.response.ItemPageResponse;
 import com.redis.bottleneck.model.response.ItemResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestClient;
@@ -22,15 +23,15 @@ public class EndPointCallUtil {
                 ;
     }
 
-    public static ItemResponse readAll(CacheStrategy cacheStrategy, Long page, Long pageSize){
+    public static ItemPageResponse readAll(CacheStrategy cacheStrategy, Long page, Long pageSize){
         return restClient.get()
                 .uri("/cache-strategy/%s/items?page=%s&pageSize=%s".formatted(cacheStrategy.name(), page, pageSize))
                 .retrieve()
-                .body(ItemResponse.class)
+                .body(ItemPageResponse.class)
                 ;
     }
 
-    public static ItemResponse readAllInfiniteScroll(CacheStrategy cacheStrategy, Long lastItemId, Long pageSize){
+    public static ItemPageResponse readAllInfiniteScroll(CacheStrategy cacheStrategy, Long lastItemId, Long pageSize){
         return restClient.get()
                 .uri(
                         (lastItemId) == null ?
@@ -38,7 +39,7 @@ public class EndPointCallUtil {
                             :
                             "/cache-strategy/%s/items/infinite-scroll?lastItemId=%s&pageSize=%s".formatted(cacheStrategy.name(), lastItemId, pageSize))
                 .retrieve()
-                .body(ItemResponse.class)
+                .body(ItemPageResponse.class)
                 ;
     }
 
