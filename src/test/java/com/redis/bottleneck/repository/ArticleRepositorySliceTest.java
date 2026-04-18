@@ -1,23 +1,14 @@
 package com.redis.bottleneck.repository;
 
 import com.redis.bottleneck.model.domain.Article;
-import com.redis.bottleneck.model.request.ArticleCreateRequest;
+import com.redis.bottleneck.utils.MySQLSliceTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
-import org.springframework.boot.testcontainers.service.connection.ServiceConnection;
 import org.springframework.test.context.ActiveProfiles;
-import org.testcontainers.containers.MySQLContainer;
-import org.testcontainers.junit.jupiter.Container;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -27,38 +18,28 @@ import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTest
 @DataJpaTest //table 생성 = entity
 @AutoConfigureTestDatabase(replace = NONE) //H2가 아닌 MySQL 환경을 DB로 그대로 유지.
 @ActiveProfiles("test")
-class ArticleRepositoryTest {
-
-    @Container
-    @ServiceConnection
-    static MySQLContainer<?> mysql =
-            new MySQLContainer<>("mysql:8.0.42");
+class ArticleRepositorySliceTest extends MySQLSliceTestContainerSupportUtil {
 
     @Autowired
     private ArticleRepository articleRepository;
 
-    @Autowired
-    private TestEntityManager testEntityManager;
-
     @Test
-    void findAll() {
+    void readAll() {
         //given
-        insertTestData();
         long offset = 0L;
         long limit = 5L;
 
-        //stub
-        List<Article> result = articleRepository.findAll(1L, offset, limit);
+        //when
+        List<Article> result = articleRepository.readAll(1L, offset, limit);
 
         //then
         assertThat(result).hasSize(5);
-        assertThat(result.get(0).getArticleId()).isEqualTo(20); //desc test
+        assertThat(result.get(0).getArticleId()).isEqualTo(20L); //desc test
     }
 
     @Test
     void count() {
         //given
-        insertTestData();
 
         //when
         long count = articleRepository.count();
@@ -70,10 +51,9 @@ class ArticleRepositoryTest {
     @Test
     void findAllInfiniteScroll() {
         //given
-        insertTestData();
 
         //when
-        List<Article> result = articleRepository.findAllInfiniteScroll(1L,5L);
+        List<Article> result = articleRepository.readAllInfiniteScroll(1L,5L);
 
         //then
         assertThat(result.get(0).getArticleId()).isEqualTo(20L);
@@ -83,11 +63,10 @@ class ArticleRepositoryTest {
     @Test
     void testFindAllInfiniteScroll() {
         // given
-        insertTestData();
 
         // when
-        List<Article> page1 = articleRepository.findAllInfiniteScroll(1L, 5L, 16L);
-        List<Article> page2 = articleRepository.findAllInfiniteScroll(1L, 5L, 11L);
+        List<Article> page1 = articleRepository.readAllInfiniteScroll(1L, 5L, 16L);
+        List<Article> page2 = articleRepository.readAllInfiniteScroll(1L, 5L, 11L);
 
         // then
         assertThat(page1).hasSize(5);
@@ -106,15 +85,4 @@ class ArticleRepositoryTest {
         assertThat(page2.get(0).getArticleId()).isEqualTo(10L);
     }
 
-    private void insertTestData(){
-        Long boardId = 1L;
-        for (int i = 1; i <= 20; i++) {
-            Article article = Article.create(
-                    new ArticleCreateRequest((long) i, "test_" + i, boardId)
-            );
-            testEntityManager.persist(article);
-        }
-        testEntityManager.flush();
-        testEntityManager.clear();
-    }
 }

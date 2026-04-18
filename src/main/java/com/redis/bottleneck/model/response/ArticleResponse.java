@@ -3,7 +3,7 @@ package com.redis.bottleneck.model.response;
 import com.redis.bottleneck.model.domain.Article;
 
 public record ArticleResponse(
-        Long itemId,
+        Long articleId,
         String data,
         Long boardId
 ) {

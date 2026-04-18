@@ -23,25 +23,25 @@ public class ArticleService {
 
     public ArticlePageResponse readAll(Long boardId, Long page, Long pageSize){
         return ArticlePageResponse.from(
-                articleRepository.findAll(boardId, page, pageSize),
+                articleRepository.readAll(boardId, page, pageSize),
                 articleRepository.count()
         );
     }
 
-    public ArticlePageResponse readAllInfiniteScroll(Long boardId, Long pageSize){
-        return ArticlePageResponse.from(
-                articleRepository.findAllInfiniteScroll(boardId, pageSize),
-                articleRepository.count()
+    public ArticlePageResponse readInfiniteScroll(Long boardId, Long lastArticleId, Long pageSize){
+        return  (lastArticleId == null) ?
+                ArticlePageResponse.from(
+                    articleRepository.readAllInfiniteScroll(boardId, pageSize),
+                    articleRepository.count()
+                )
 
-        );
-    }
+                :
 
-    public ArticlePageResponse readAllInfiniteScroll(Long boardId, Long lastArticleId, Long pageSize){
-        return ArticlePageResponse.from(
-                articleRepository.findAllInfiniteScroll(boardId, pageSize, lastArticleId),
-                articleRepository.count()
-
-        );
+                ArticlePageResponse.from(
+                    articleRepository.readAllInfiniteScroll(boardId, pageSize, lastArticleId),
+                    articleRepository.count()
+                )
+                ;
     }
 
     @Transactional

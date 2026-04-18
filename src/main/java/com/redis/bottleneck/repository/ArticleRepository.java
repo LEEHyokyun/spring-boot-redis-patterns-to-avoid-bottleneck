@@ -19,7 +19,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
                 "   limit :limit offset :offset ",
         nativeQuery = true
     )
-    List<Article> findAll(
+    List<Article> readAll(
         @Param("boardId") Long boardId,
         @Param("offset") Long offset,
         @Param("limit") Long limit
@@ -41,7 +41,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
                     "   limit :limit ",
             nativeQuery = true
     )
-    List<Article> findAllInfiniteScroll(
+    List<Article> readAllInfiniteScroll(
             @Param("boardId") Long boardId,
             @Param("limit") Long limit
     );
@@ -55,7 +55,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
                     "   limit :limit ",
             nativeQuery = true
     )
-    List<Article> findAllInfiniteScroll(
+    List<Article> readAllInfiniteScroll(
             @Param("boardId") Long boardId,
             @Param("limit") Long limit,
             @Param("lastArticleId") Long lastArticleId
