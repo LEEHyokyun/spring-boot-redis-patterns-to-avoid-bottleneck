@@ -7,7 +7,15 @@ public record ArticleResponse(
         String data,
         Long boardId
 ) {
+
+    /*
+     * for null caching
+     * - No data ? privacy ? deleted ?
+     * */
+    private static final ArticleResponse nullObject = new ArticleResponse(null, null, null);
+
     public static ArticleResponse from(Article article){
-        return new ArticleResponse(article.getArticleId(), article.getData(), article.getBoardId());
+
+        return (article == null) ? nullObject : new ArticleResponse(article.getArticleId(), article.getData(), article.getBoardId());
     }
 }
