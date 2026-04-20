@@ -17,13 +17,16 @@ public class ArticleService {
 
     public ArticleResponse read(Long articleId){
         return ArticleResponse.from(
-                articleRepository.findById(articleId).orElse(null)
+                articleRepository.findById(articleId)
+                        .orElseThrow(
+                                () -> new RuntimeException("Articles not Found")
+                        )
         );
     }
 
     public ArticlePageResponse readAll(Long boardId, Long page, Long pageSize){
         return ArticlePageResponse.from(
-                articleRepository.readAll(boardId, page, pageSize),
+                articleRepository.readAll(boardId, (page - 1) * pageSize, pageSize),
                 articleRepository.count()
         );
     }

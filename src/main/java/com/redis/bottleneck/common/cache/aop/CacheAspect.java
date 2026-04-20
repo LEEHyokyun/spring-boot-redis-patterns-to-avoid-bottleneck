@@ -76,7 +76,7 @@ public class CacheAspect {
      * 포인트컷 = 파라미터 = bounded.
      * */
     @AfterReturning(pointcut = "@annotation(cacheEvict)", returning = "result")
-    public void handleCachePut(JoinPoint joinPoint, CacheEvict cacheEvict, Object result) {
+    public void handleCacheEvict(JoinPoint joinPoint, CacheEvict cacheEvict, Object result) {
         CacheStrategy cacheStrategy = cacheEvict.cacheStrategy();
         CacheHandler cacheHandler = this.getCacheHandler(cacheStrategy);
         String key = keyGenerator.generateKey(joinPoint, cacheStrategy, cacheEvict.cacheName(), cacheEvict.key());

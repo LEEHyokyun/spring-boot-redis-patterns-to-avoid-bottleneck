@@ -1,5 +1,6 @@
 package com.redis.bottleneck.common.cache.aop;
 
 public enum CacheStrategy {
-    NONE
+    NONE,
+    SPRING_FRAMEWORK_AOP,
 }

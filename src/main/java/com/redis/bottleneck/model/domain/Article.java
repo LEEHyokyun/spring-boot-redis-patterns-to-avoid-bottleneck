@@ -29,6 +29,8 @@ public class Article {
 
         article.data = articleCreateRequest.data();
         article.boardId = articleCreateRequest.boardId();
+        article.createdAt = LocalDateTime.now();
+        article.updatedAt = LocalDateTime.now();
 
         return article;
     }

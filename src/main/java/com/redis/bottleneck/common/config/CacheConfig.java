@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common;
+package com.redis.bottleneck.common.config;
 
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -7,7 +7,10 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 
 @Configuration
 @RequiredArgsConstructor
-public class RedisConfig {
+/*
+* Customized AOP Config
+* */
+public class CacheConfig {
     private final StringRedisTemplate redisTemplate;
 
     /*
