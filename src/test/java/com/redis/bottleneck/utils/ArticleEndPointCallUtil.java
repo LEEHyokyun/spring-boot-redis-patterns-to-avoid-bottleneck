@@ -1,8 +1,12 @@
 package com.redis.bottleneck.utils;
 
 import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.model.request.ArticleCreateRequest;
+import com.redis.bottleneck.model.request.ArticleUpdateRequest;
 import com.redis.bottleneck.model.request.ItemCreateRequest;
 import com.redis.bottleneck.model.request.ItemUpdateRequest;
+import com.redis.bottleneck.model.response.ArticlePageResponse;
+import com.redis.bottleneck.model.response.ArticleResponse;
 import com.redis.bottleneck.model.response.ItemPageResponse;
 import com.redis.bottleneck.model.response.ItemResponse;
 import lombok.RequiredArgsConstructor;
@@ -10,60 +14,60 @@ import org.springframework.web.client.RestClient;
 
 //for spring boot test
 @RequiredArgsConstructor
-public class EndPointCallUtil {
+public class ArticleEndPointCallUtil {
 
     //client
     private static RestClient restClient = RestClient.create("http://localhost:8080");
 
-    public static ItemResponse read(CacheStrategy cacheStrategy, Long itemId){
+    public static ArticleResponse read(CacheStrategy cacheStrategy, Long articleId){
         return restClient.get()
-                .uri("/cache-strategy/%s/items/%s".formatted(cacheStrategy.name(), itemId))
+                .uri("/cache-strategy/%s/articles/%s".formatted(cacheStrategy.name(), articleId))
                 .retrieve()
-                .body(ItemResponse.class)
+                .body(ArticleResponse.class)
                 ;
     }
 
-    public static ItemPageResponse readAll(CacheStrategy cacheStrategy, Long page, Long pageSize){
+    public static ArticlePageResponse readAll(CacheStrategy cacheStrategy, Long page, Long pageSize){
         return restClient.get()
-                .uri("/cache-strategy/%s/items?page=%s&pageSize=%s".formatted(cacheStrategy.name(), page, pageSize))
+                .uri("/cache-strategy/%s/articles?page=%s&pageSize=%s".formatted(cacheStrategy.name(), page, pageSize))
                 .retrieve()
-                .body(ItemPageResponse.class)
+                .body(ArticlePageResponse.class)
                 ;
     }
 
-    public static ItemPageResponse readAllInfiniteScroll(CacheStrategy cacheStrategy, Long lastItemId, Long pageSize){
+    public static ArticlePageResponse readAllInfiniteScroll(CacheStrategy cacheStrategy, Long lastArticleId, Long pageSize){
         return restClient.get()
                 .uri(
-                        (lastItemId) == null ?
-                            "/cache-strategy/%s/items/infinite-scroll?pageSize=%s".formatted(cacheStrategy.name(), pageSize)
+                        (lastArticleId) == null ?
+                            "/cache-strategy/%s/articles/infinite-scroll?pageSize=%s".formatted(cacheStrategy.name(), pageSize)
                             :
-                            "/cache-strategy/%s/items/infinite-scroll?lastItemId=%s&pageSize=%s".formatted(cacheStrategy.name(), lastItemId, pageSize))
+                            "/cache-strategy/%s/articles/infinite-scroll?lastArticleId=%s&pageSize=%s".formatted(cacheStrategy.name(), lastArticleId, pageSize))
                 .retrieve()
-                .body(ItemPageResponse.class)
+                .body(ArticlePageResponse.class)
                 ;
     }
 
-    public static ItemResponse create(CacheStrategy cacheStrategy, ItemCreateRequest itemCreateRequest){
+    public static ArticleResponse create(CacheStrategy cacheStrategy, ArticleCreateRequest articleCreateRequest){
         return restClient.post()
-                .uri("/cache-strategy/%s/items".formatted(cacheStrategy.name()))
-                .body(itemCreateRequest)
+                .uri("/cache-strategy/%s/articles".formatted(cacheStrategy.name()))
+                .body(articleCreateRequest)
                 .retrieve()
-                .body(ItemResponse.class)
+                .body(ArticleResponse.class)
                 ;
     }
 
-    public static ItemResponse update(CacheStrategy cacheStrategy, Long itemId, ItemUpdateRequest itemUpdateRequest) {
+    public static ArticleResponse update(CacheStrategy cacheStrategy, Long articleId, ArticleUpdateRequest articleUpdateRequest) {
         return restClient.post()
-                .uri("/cache-strategy/%s/items/%s".formatted(cacheStrategy.name(), itemId))
-                .body(itemUpdateRequest)
+                .uri("/cache-strategy/%s/articles/%s".formatted(cacheStrategy.name(), articleId))
+                .body(articleUpdateRequest)
                 .retrieve()
-                .body(ItemResponse.class)
+                .body(ArticleResponse.class)
                 ;
     }
 
-    public static void delete(CacheStrategy cacheStrategy, Long itemId){
+    public static void delete(CacheStrategy cacheStrategy, Long articleId){
         restClient.delete()
-                .uri("/cache-strategy/%s/items/%s".formatted(cacheStrategy.name(), itemId))
+                .uri("/cache-strategy/%s/articles/%s".formatted(cacheStrategy.name(), articleId))
                 .retrieve()
                 .toBodilessEntity()
                 ;

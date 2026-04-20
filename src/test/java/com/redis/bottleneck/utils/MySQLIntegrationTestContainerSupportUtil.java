@@ -26,8 +26,8 @@ public class MySQLIntegrationTestContainerSupportUtil {
     static MySQLContainer<?> mysql =
             new MySQLContainer<>("mysql:8.0.42");
 
-//    @PersistenceContext
-//    protected EntityManager entityManager;
+    @PersistenceContext
+    protected EntityManager entityManager;
 
 //    @BeforeEach
 //    protected void insertData() {
