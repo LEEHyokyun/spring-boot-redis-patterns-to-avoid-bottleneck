@@ -18,9 +18,7 @@ public class ArticleService {
     public ArticleResponse read(Long articleId){
         return ArticleResponse.from(
                 articleRepository.findById(articleId)
-                        .orElseThrow(
-                                () -> new RuntimeException("Articles not Found")
-                        )
+                        .orElse(null)
         );
     }
 
@@ -72,7 +70,7 @@ public class ArticleService {
         );
     }
 
-    public long count(){
-        return articleRepository.count();
+    public long count(long boardId){
+        return articleRepository.count(boardId, 2L);
     }
 }

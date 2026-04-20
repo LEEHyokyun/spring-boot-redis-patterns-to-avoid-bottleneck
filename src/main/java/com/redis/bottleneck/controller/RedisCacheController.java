@@ -32,19 +32,21 @@ public class RedisCacheController {
     @GetMapping("/cache-strategy/{cacheStrategy}/articles")
     public ArticlePageResponse readAll(
             @PathVariable CacheStrategy cacheStrategy,
+            @RequestParam Long boardId,
             @RequestParam Long page,
             @RequestParam Long pageSize
     ){
-        return this.getCacheService(cacheStrategy).readAll(page, pageSize);
+        return this.getCacheService(cacheStrategy).readAll(boardId, page, pageSize);
     }
 
     @GetMapping("/cache-strategy/{cacheStrategy}/articles/infinite-scroll")
     public ArticlePageResponse readAllInfiniteScroll(
             @PathVariable CacheStrategy cacheStrategy,
+            @RequestParam Long boardId,
             @RequestParam(required = false) Long lastArticleId,
             @RequestParam Long pageSize
     ){
-        return this.getCacheService(cacheStrategy).readAllInfiniteScroll(lastArticleId, pageSize);
+        return this.getCacheService(cacheStrategy).readAllInfiniteScroll(boardId, lastArticleId, pageSize);
     }
 
     @PostMapping("/cache-strategy/{cacheStrategy}/articles")
@@ -70,6 +72,14 @@ public class RedisCacheController {
             @PathVariable Long articleId
     ){
         this.getCacheService(cacheStrategy).delete(articleId);
+    }
+
+    @GetMapping("/cache-strategy/{cacheStrategy}/articleCount/{boardId}")
+    public long count(
+            @PathVariable CacheStrategy cacheStrategy,
+            @PathVariable Long boardId
+    ){
+        return this.getCacheService(cacheStrategy).count(boardId);
     }
 
     private RedisCacheService getCacheService(CacheStrategy cacheStrategy){

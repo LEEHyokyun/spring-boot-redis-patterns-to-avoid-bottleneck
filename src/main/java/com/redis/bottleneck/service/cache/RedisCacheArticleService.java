@@ -33,8 +33,8 @@ public class RedisCacheArticleService implements RedisCacheService {
             cacheNames = "articleList",
             key = "#page + ':' + #pageSize"
     )
-    public ArticlePageResponse readAll(Long page, Long pageSize) {
-        return articleService.readAll(1L, page, pageSize);
+    public ArticlePageResponse readAll(Long boardId, Long page, Long pageSize) {
+        return articleService.readAll(boardId, page, pageSize);
     }
 
     @Override
@@ -42,8 +42,8 @@ public class RedisCacheArticleService implements RedisCacheService {
             cacheNames = "articleListInfiniteScroll",
             key = "#lastArticleId + ':' + #pageSize"
     )
-    public ArticlePageResponse readAllInfiniteScroll(Long lastArticleId, Long pageSize) {
-        return articleService.readInfiniteScroll(1L, lastArticleId, pageSize);
+    public ArticlePageResponse readAllInfiniteScroll(Long boardId, Long lastArticleId, Long pageSize) {
+        return articleService.readInfiniteScroll(boardId, lastArticleId, pageSize);
     }
 
     @Override
@@ -70,8 +70,8 @@ public class RedisCacheArticleService implements RedisCacheService {
     }
 
     @Override
-    public long count() {
-        return articleService.count();
+    public long count(long boardId) {
+        return articleService.count(boardId);
     }
 
     @Override

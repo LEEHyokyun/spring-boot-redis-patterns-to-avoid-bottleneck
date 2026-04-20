@@ -10,9 +10,9 @@ public interface RedisCacheService {
 
     ArticleResponse read(Long articleId);
 
-    ArticlePageResponse readAll(Long page, Long pageSize);
+    ArticlePageResponse readAll(Long boardId, Long page, Long pageSize);
 
-    public ArticlePageResponse readAllInfiniteScroll(Long lastArticleId, Long pageSize);
+    public ArticlePageResponse readAllInfiniteScroll(Long boardId, Long lastArticleId, Long pageSize);
 
     public ArticleResponse create(ArticleCreateRequest articleCreateRequest);
 
@@ -20,7 +20,7 @@ public interface RedisCacheService {
 
     public void delete(long itemId);
 
-    public long count();
+    public long count(long boardId);
 
     boolean supports(CacheStrategy cacheStrategy);
 }

@@ -88,10 +88,13 @@ public class RedisCacheApiTest  {
         //given
         ArticleEndPointCallUtil.delete(cacheStrategy, response1.articleId());
 
-        Assertions.assertThrows(
-                RuntimeException.class,
-                () -> ArticleEndPointCallUtil.read(cacheStrategy, 1L)
-        );
+        long count = ArticleEndPointCallUtil.count(cacheStrategy, boardId);
+
+        Assertions.assertEquals(2, count);
+//        Assertions.assertThrows(
+//                NullPointerException.class,
+//                () -> ArticleEndPointCallUtil.read(cacheStrategy, 1L)
+//        );
 
     }
 

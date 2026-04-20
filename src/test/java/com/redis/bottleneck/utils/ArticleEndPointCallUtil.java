@@ -29,7 +29,7 @@ public class ArticleEndPointCallUtil {
 
     public static ArticlePageResponse readAll(CacheStrategy cacheStrategy, Long page, Long pageSize){
         return restClient.get()
-                .uri("/cache-strategy/%s/articles?page=%s&pageSize=%s".formatted(cacheStrategy.name(), page, pageSize))
+                .uri("/cache-strategy/%s/articles?boardId=%s&page=%s&pageSize=%s".formatted(cacheStrategy.name(), 1L, page, pageSize))
                 .retrieve()
                 .body(ArticlePageResponse.class)
                 ;
@@ -39,9 +39,9 @@ public class ArticleEndPointCallUtil {
         return restClient.get()
                 .uri(
                         (lastArticleId) == null ?
-                            "/cache-strategy/%s/articles/infinite-scroll?pageSize=%s".formatted(cacheStrategy.name(), pageSize)
+                            "/cache-strategy/%s/articles/infinite-scroll?boardId=%s&pageSize=%s".formatted(cacheStrategy.name(), 1L, pageSize)
                             :
-                            "/cache-strategy/%s/articles/infinite-scroll?lastArticleId=%s&pageSize=%s".formatted(cacheStrategy.name(), lastArticleId, pageSize))
+                            "/cache-strategy/%s/articles/infinite-scroll?boardId=%s&lastArticleId=%s&pageSize=%s".formatted(cacheStrategy.name(), 1L, lastArticleId, pageSize))
                 .retrieve()
                 .body(ArticlePageResponse.class)
                 ;
@@ -70,6 +70,14 @@ public class ArticleEndPointCallUtil {
                 .uri("/cache-strategy/%s/articles/%s".formatted(cacheStrategy.name(), articleId))
                 .retrieve()
                 .toBodilessEntity()
+                ;
+    }
+
+    public static long count(CacheStrategy cacheStrategy, long boardId){
+        return restClient.get()
+                .uri("cache-strategy/%s/articleCount/%s".formatted(cacheStrategy.name(), boardId))
+                .retrieve()
+                .body(Long.class)
                 ;
     }
 }
