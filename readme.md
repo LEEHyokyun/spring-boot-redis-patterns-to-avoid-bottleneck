@@ -9,6 +9,9 @@
 
 - redis 사상 및 목적에 맞는, 그러면서도 병목 현상을 줄이기 위한 다양한 pattern 적용 방안
 - spring boot project
+- TDD
+  - Test Configuration / Util과 의존성 테스트, 단위 테스트, 통합 테스트 등 
+  - 목적에 맞게 테스트 책임 분리하여 진행.
 
 
 ## 3. Architecturing
