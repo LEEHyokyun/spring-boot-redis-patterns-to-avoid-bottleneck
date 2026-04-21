@@ -4,4 +4,5 @@ public enum CacheStrategy {
     NONE,
     SPRING_FRAMEWORK_AOP,
     NULL_OBJECT_PATTERN,
+    BLOOM_FILTER,
 }
