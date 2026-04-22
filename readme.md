@@ -81,7 +81,18 @@ bf:users → "0100100010010..." (bit array)
 ``
 
 - 기본적으로 set bit 연산은 bloom filter 규모가 커질 수록 연산 효율 및 오차율 측면에서 불리할 수 있다.
-  - 
+  - init을 하여 사용할 bitmap 영역을 선제적 할당.
+
+> Problem
+- 데이터 탐색 규모가 커지면 그만큼 No data 탐색, 이에 따른 Cache Penetration 발생.
+- 입력 데이터가 많아진다면, False Positive 발생 횟수는 비례하여 증가.
+- 고정된 크기의 Bloom Filter, 데이터 삭제가 불가능.
+
+## 참고1. Bloom Filter Split
+
+> Bloom filter의 절대적인 수용 범위를 더 늘리자는 전략.
+- bitmap의 최대 크기는 512MB(32bit), 이를 넘어선 크기가 필요하다면 그만큼의 분할된(Split) Bloom Filter를 사용하는 방안.
+- Redis Cluster의 Slot처럼, 각 Bloom Filter는 자신에게 할당된 Split 번호 및 비트 인덱스를 관리한다.
 
 ## Appendix. Redis Architecturing
 
