@@ -1,9 +1,8 @@
-package com.redis.bottleneck.service.strategy.bloomfilter;
+package com.redis.bottleneck.common.bloomfilter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.connection.StringRedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
-import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
@@ -40,7 +39,7 @@ public class BloomFilterHandler {
             String key = this.genKey(bloomFilter);
             List<Long> hashedIndices = bloomFilter.hash(value);
             for(Long hashedIndex : hashedIndices) {
-                con.setBit(key, hashedIndex, true);
+                con.getBit(key, hashedIndex);
             }
 
             return null;

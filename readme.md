@@ -77,6 +77,9 @@ key        value
 bf:users → "0100100010010..." (bit array)
 ``
 
+- 기본적으로 set bit 연산은 bloom filter 규모가 커질 수록 연산 효율 및 오차율 측면에서 불리할 수 있다.
+  - 
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer

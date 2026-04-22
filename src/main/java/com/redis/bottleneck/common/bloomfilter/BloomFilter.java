@@ -1,4 +1,4 @@
-package com.redis.bottleneck.service.strategy.bloomfilter;
+package com.redis.bottleneck.common.bloomfilter;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -77,9 +77,9 @@ public class BloomFilter {
         );
     }
 
-    public List<Long> hash(String key){
+    public List<Long> hash(String value){
         return hashFunctions.stream()
-                .map(hashFunction -> hashFunction.hash(key))
+                .map(hashFunction -> hashFunction.hash(value))
                 .toList()
                 ;
     }

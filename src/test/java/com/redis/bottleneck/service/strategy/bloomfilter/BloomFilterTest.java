@@ -1,5 +1,6 @@
 package com.redis.bottleneck.service.strategy.bloomfilter;
 
+import com.redis.bottleneck.common.bloomfilter.BloomFilter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

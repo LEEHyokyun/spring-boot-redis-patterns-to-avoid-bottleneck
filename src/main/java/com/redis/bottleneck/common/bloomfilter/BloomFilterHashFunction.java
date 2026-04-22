@@ -1,4 +1,4 @@
-package com.redis.bottleneck.service.strategy.bloomfilter;
+package com.redis.bottleneck.common.bloomfilter;
 
 @FunctionalInterface
 public interface BloomFilterHashFunction {
