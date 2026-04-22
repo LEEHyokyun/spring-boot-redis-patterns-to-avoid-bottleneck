@@ -14,6 +14,17 @@ public class BloomFilterHandler {
     private final StringRedisTemplate stringRedisTemplate;
 
     /*
+    * bit array 메모리 중 점유율을 점차 늘려나가는 방식
+    * */
+    public void init(BloomFilter bloomFilter) {
+        String key = this.genKey(bloomFilter);
+
+        for(long offset = 0 ; offset < bloomFilter.getBitSize(); offset += 8L * 1024 * 1024 * 8) {
+            stringRedisTemplate.opsForValue().setBit(key, offset, false); //최초 8MB만 점유
+        }
+    }
+
+    /*
     * hashed indices update on redis bitmap
     * */
     public void add(BloomFilter bloomFilter, String value) {

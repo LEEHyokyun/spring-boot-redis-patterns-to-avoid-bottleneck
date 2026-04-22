@@ -105,4 +105,22 @@ class BloomFilterHandlerTest extends RedisTestContainerSupportUtil {
         log.info("소요 시간 : {}", timeMillis);
 
     }
+
+    @Test
+    void requiredSpentTimeAfter8MBInitTest(){
+        //given (data 4억개)
+        BloomFilter bloomFilter = BloomFilter.create("testId", 400_000_000, 0.01);
+        List<Long> hashedIndices = bloomFilter.hash("value");
+        log.info("사용 bit size : {}", bloomFilter.getBitSize());
+
+        bloomFilterHandler.init(bloomFilter);
+
+        long start = System.nanoTime();
+        bloomFilterHandler.add(bloomFilter, "value");
+
+        //when
+        long timeMillis = Duration.ofNanos(System.nanoTime() - start).toMillis();
+        log.info("소요 시간 : {}", timeMillis);
+
+    }
 }
