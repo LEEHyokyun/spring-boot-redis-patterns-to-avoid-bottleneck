@@ -3,7 +3,7 @@ package com.redis.bottleneck.service.strategy.splitBloomfilter;
 import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.service.ArticleService;
-import com.redis.bottleneck.service.cache.RedisCachePenetrationBloomFilterService;
+import com.redis.bottleneck.service.cache.RedisCachePenetrationShardedSplitBloomFilterService;
 import com.redis.bottleneck.service.cache.RedisCachePenetrationSplitBloomFilterService;
 import com.redis.bottleneck.utils.MySQLAndRedisIntegrationTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -25,15 +25,15 @@ import static org.mockito.Mockito.*;
 //        }
 //)
 @ActiveProfiles("test")
-public class RedisCacheSplitBloomFilterTest extends MySQLAndRedisIntegrationTestContainerSupportUtil {
+public class RedisCacheShardedSplitBloomFilterTest extends MySQLAndRedisIntegrationTestContainerSupportUtil {
 
     @Autowired
-    private RedisCachePenetrationSplitBloomFilterService redisCacheSplitBloomFilterService;
+    private RedisCachePenetrationShardedSplitBloomFilterService redisCacheShardedSplitBloomFilterService;
 
     @MockitoSpyBean
     private ArticleService articleService;
 
-    static final CacheStrategy cacheStrategy = CacheStrategy.SPLIT_BLOOM_FILTER;
+    static final CacheStrategy cacheStrategy = CacheStrategy.SPLIT_SHARDED_BLOOM_FILTER;
 
     @Test
     void bloomFilteringTest(){
@@ -44,7 +44,7 @@ public class RedisCacheSplitBloomFilterTest extends MySQLAndRedisIntegrationTest
         //when
         for(long i = 0 ; i < 1000 ; i++){
             //ArticleEndPointCallUtil.create(cacheStrategy, new ArticleCreateRequest( i + 1, "test data " + i, boardId));
-            redisCacheSplitBloomFilterService.create(new ArticleCreateRequest(i + 1, "test data " + i, boardId));
+            redisCacheShardedSplitBloomFilterService.create(new ArticleCreateRequest(i + 1, "test data " + i, boardId));
         }
 
         /*
@@ -53,7 +53,7 @@ public class RedisCacheSplitBloomFilterTest extends MySQLAndRedisIntegrationTest
         //when / then
         for(long articleId = 0 ; articleId < 1000 ; articleId++){
 
-            redisCacheSplitBloomFilterService.read(articleId + 1);
+            redisCacheShardedSplitBloomFilterService.read(articleId + 1);
 
         }
 
@@ -65,7 +65,7 @@ public class RedisCacheSplitBloomFilterTest extends MySQLAndRedisIntegrationTest
         //when / then
         for(long articleId = 1000 ; articleId < 2000 ; articleId++){
             //ArticleEndPointCallUtil.read(cacheStrategy, articleId);
-            redisCacheSplitBloomFilterService.read(articleId);
+            redisCacheShardedSplitBloomFilterService.read(articleId);
         }
 
         verify(articleService, atLeastOnce()).read(anyLong());
