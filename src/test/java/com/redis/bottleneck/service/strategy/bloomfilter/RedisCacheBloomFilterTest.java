@@ -1,4 +1,4 @@
-package com.redis.bottleneck.apicall;
+package com.redis.bottleneck.service.strategy.bloomfilter;
 
 import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
