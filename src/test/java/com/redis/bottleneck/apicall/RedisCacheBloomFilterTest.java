@@ -1,32 +1,18 @@
 package com.redis.bottleneck.apicall;
 
-import com.redis.bottleneck.common.bloomfilter.BloomFilterHandler;
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.service.ArticleService;
 import com.redis.bottleneck.service.cache.RedisCachePenetrationBloomFilterService;
-import com.redis.bottleneck.utils.ArticleEndPointCallUtil;
 import com.redis.bottleneck.utils.MySQLAndRedisIntegrationTestContainerSupportUtil;
-import com.redis.bottleneck.utils.MySQLSliceTestContainerSupportUtil;
-import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import static org.mockito.Mockito.*;
-import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
 @Slf4j
 @SpringBootTest //MySQL / Redis 모두 필요한 통합 테스트

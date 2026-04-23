@@ -1,6 +1,6 @@
 package com.redis.bottleneck.common.cache.utils;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.expression.EvaluationContext;

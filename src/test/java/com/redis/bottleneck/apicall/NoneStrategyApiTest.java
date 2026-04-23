@@ -1,6 +1,6 @@
 package com.redis.bottleneck.apicall;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.common.cache.handler.CacheNoneHandler;
 import com.redis.bottleneck.model.request.ItemCreateRequest;
 import com.redis.bottleneck.model.request.ItemUpdateRequest;
@@ -10,15 +10,10 @@ import com.redis.bottleneck.utils.EndPointCallUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 
 import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.*;
 
 //E2E
 @SpringBootTest

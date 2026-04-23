@@ -1,6 +1,6 @@
 package com.redis.bottleneck.service.cache;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.common.cache.service.RedisCacheService;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;

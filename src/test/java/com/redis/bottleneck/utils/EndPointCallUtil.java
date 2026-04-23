@@ -1,6 +1,6 @@
 package com.redis.bottleneck.utils;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ItemCreateRequest;
 import com.redis.bottleneck.model.request.ItemUpdateRequest;
 import com.redis.bottleneck.model.response.ItemPageResponse;

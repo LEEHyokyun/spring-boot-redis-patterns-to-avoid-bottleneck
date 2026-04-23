@@ -1,12 +1,11 @@
 package com.redis.bottleneck.apicall;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;
 import com.redis.bottleneck.model.response.ArticlePageResponse;
 import com.redis.bottleneck.model.response.ArticleResponse;
 import com.redis.bottleneck.utils.ArticleEndPointCallUtil;
-import com.redis.bottleneck.utils.MySQLIntegrationTestContainerSupportUtil;
 import jakarta.transaction.Transactional;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;

@@ -1,5 +1,7 @@
 package com.redis.bottleneck.common.cache.aop;
 
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

@@ -1,7 +1,7 @@
 package com.redis.bottleneck.service.cache;
 
 import com.redis.bottleneck.common.cache.aop.CachePut;
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.common.cache.aop.Cacheable;
 import com.redis.bottleneck.common.cache.service.CacheService;
 import com.redis.bottleneck.model.request.ItemCreateRequest;

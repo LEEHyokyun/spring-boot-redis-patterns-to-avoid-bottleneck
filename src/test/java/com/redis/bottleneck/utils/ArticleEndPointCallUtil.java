@@ -1,14 +1,10 @@
 package com.redis.bottleneck.utils;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;
-import com.redis.bottleneck.model.request.ItemCreateRequest;
-import com.redis.bottleneck.model.request.ItemUpdateRequest;
 import com.redis.bottleneck.model.response.ArticlePageResponse;
 import com.redis.bottleneck.model.response.ArticleResponse;
-import com.redis.bottleneck.model.response.ItemPageResponse;
-import com.redis.bottleneck.model.response.ItemResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.client.RestClient;
 

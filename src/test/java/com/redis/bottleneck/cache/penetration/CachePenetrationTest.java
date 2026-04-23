@@ -1,27 +1,16 @@
 package com.redis.bottleneck.cache.penetration;
 
-import com.redis.bottleneck.common.cache.aop.CacheStrategy;
-import com.redis.bottleneck.common.config.RedisCacheConfig;
-import com.redis.bottleneck.model.response.ArticleResponse;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.service.ArticleService;
 import com.redis.bottleneck.service.cache.RedisCachePenetrationNullObjectPatternService;
 import com.redis.bottleneck.utils.ArticleEndPointCallUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.cache.Cache;
-import org.springframework.cache.CacheManager;
-import org.springframework.data.redis.cache.RedisCacheConfiguration;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-
-import static javax.management.Query.times;
 
 /*
 * 빠른 test를 위해 e2e 시 spring boot test하지 않고,

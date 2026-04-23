@@ -1,6 +1,7 @@
 package com.redis.bottleneck.common.cache.aop;
 
 import com.redis.bottleneck.common.cache.handler.CacheHandler;
+import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.common.cache.utils.KeyGenerator;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
