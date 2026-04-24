@@ -108,6 +108,10 @@ bf:users → "0100100010010..." (bit array)
 > Bloom filter의 교체는 어렵기에, 새롭게 생성해서 신규 filtering으로 운용
 - 기존 bloom filter에, 점진적 오차 감소율 및 데이터 규모를 적용하여 sub filter를 생성한다.
 
+# Split Sharded Bloom Filter 원본 + 하위 Split Sharded Sub Bloom Filter * 3개 시스템 구조
+
+![img_11.png](img_11.png)
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer
