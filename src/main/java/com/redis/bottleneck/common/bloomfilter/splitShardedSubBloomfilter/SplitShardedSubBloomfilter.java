@@ -28,6 +28,7 @@ public class SplitShardedSubBloomfilter {
         return splitShardedSubBloomfilter;
     }
 
+    //생성
     public SplitShardedBloomfilter findSubFilter(int subFilterIndex){
         return SplitShardedBloomfilter.create(
                 id + ":sub-filter:" + subFilterIndex,
@@ -37,6 +38,7 @@ public class SplitShardedSubBloomfilter {
         );
     }
 
+    //조회 및 추출
     public SplitShardedBloomfilter findActivatedFilter(int subFilterCount){
         if(subFilterCount == 0) return this.splitShardedBloomfilter;
         else {

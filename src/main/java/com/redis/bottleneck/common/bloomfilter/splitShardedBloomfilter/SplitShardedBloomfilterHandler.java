@@ -33,7 +33,7 @@ public class SplitShardedBloomfilterHandler {
         return splitBloomfilterHandler.mightContain(shard, value);
     }
 
-    public void delete(SplitShardedBloomfilter splitShardedBloomfilter, String value) {
+    public void delete(SplitShardedBloomfilter splitShardedBloomfilter) {
         List<SplitBloomfilter> shards = splitShardedBloomfilter.getShards();
         for(SplitBloomfilter shard : shards) {
             splitBloomfilterHandler.delete(shard);
