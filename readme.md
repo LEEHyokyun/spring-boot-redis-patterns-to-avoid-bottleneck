@@ -122,6 +122,12 @@ bf:users → "0100100010010..." (bit array)
 
 ![img_11.png](img_11.png)
 
+## 5-2. Cache Stampede
+
+> 데이터는 있지만, Cache Miss로 인해 datasource로 트래픽이 "쏠리는" 현상.
+- penetration이 없는 데이터에 대한 요청이라면,
+- stampede는 데이터가 있음에도, Cache에는 없어(Cache Miss) data source에 데이터 병목이 발생하는 현상
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer
