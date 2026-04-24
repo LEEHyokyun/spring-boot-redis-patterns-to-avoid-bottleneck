@@ -96,12 +96,17 @@ bf:users → "0100100010010..." (bit array)
 - bitmap의 최대 크기는 512MB(32bit), 이를 넘어선 크기가 필요하다면 그만큼의 분할된(Split) Bloom Filter를 사용하는 방안.
 - Redis Cluster의 Slot처럼, 각 Bloom Filter는 자신에게 할당된 Split 번호 및 비트 인덱스를 관리한다.
 
-# 참고2. Bloom Filter Shard
+## 참고2. Bloom Filter Shard
 
 > 단일 Bloom Filter가 아닌, 작은 bitmap으로 구성된 여러 bloom filter를 운용하는 것.
 - 중요한 점은 각 bloom filter는 물리적으로 분리되었다는 점
 - 각 물리적으로 샤드된 bloom filter를 split bloom filter로 논리적 분리가 가능해진다.
   - 부하 분산 및 데이터 분산 등 고가용성, 메모리 효율 측면에서 더욱 향상됨.
+
+## 참고3. Bloom Filter Sub filter
+
+> Bloom filter의 교체는 어렵기에, 새롭게 생성해서 신규 filtering으로 운용
+- 기존 bloom filter에, 점진적 오차 감소율 및 데이터 규모를 적용하여 sub filter를 생성한다.
 
 ## Appendix. Redis Architecturing
 
