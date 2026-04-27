@@ -78,4 +78,5 @@ public class JitterHandler implements CacheHandler {
     public boolean supports(CacheStrategy cacheStrategy) {
         return CacheStrategy.Jitter == cacheStrategy;
     }
+
 }
