@@ -8,5 +8,6 @@ public enum CacheStrategy {
     SPLIT_BLOOM_FILTER,
     SPLIT_SHARDED_BLOOM_FILTER,
     SPLIT_SHARDED_SUB_BLOOM_FILTER,
-    Jitter
+    Jitter,
+    PER
 }
