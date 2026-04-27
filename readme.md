@@ -153,6 +153,14 @@ bf:users → "0100100010010..." (bit array)
 
 - 시간이 지남에 따라 캐싱 갱신 확률은 점진적으로 증가.
 
+## 5-2-3. Request Collapsing
+
+![img_18.png](img_18.png)
+
+> 요청 단일화
+- 중복된, 동일한 캐시 데이터 갱신에 대한 서비스 요청이 다수 왔을때 1개의 요청에 대해서만 진행하도록, data source 요청을 "단일화"하는 전략.
+- 분산락을 사용하는 등, 중복된 다수의 요청이 왔을때, 최초 요청에 대해서만 캐싱 갱신을 진행하는 것이 핵심.
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer
