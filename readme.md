@@ -135,6 +135,14 @@ bf:users → "0100100010010..." (bit array)
 
 - ASIS : 동시에 캐시 만료, data source 트래픽 쏠림
 
+## 5-2-2. Probablistic Early Recomputation
+
+![img_16.png](img_16.png)
+
+> 확률적 조기 갱신
+- 특정 확률식을 적용하여 캐싱 만료 확률이 특정 기준이상으로 커질때 조기에 캐싱 갱신하는 전략.
+- 갱신 만료 확률이 큰 특정 요청에 대해 캐싱 갱신 책임을 위임, 조기에 캐싱을 갱신한다.
+
 ![img_14.png](img_14.png)
 
 - TOBE : 캐시 만료 시간에 편차, data source 트래픽 분산
