@@ -128,6 +128,19 @@ bf:users → "0100100010010..." (bit array)
 - penetration이 없는 데이터에 대한 요청이라면,
 - stampede는 데이터가 있음에도, Cache에는 없어(Cache Miss) data source에 데이터 병목이 발생하는 현상
 
+## 5-2-1. Jitter
+
+> 네트워크 상에서 데이터 패킷 도착 시간의 미세한 오차(떨림) 현상
+- Caching 만료 시간(TTL)에 미세한 편차를 두어, 일괄적인 캐싱 만료에 의한 Cache Stampede 현상을 방지하는 전략.
+
+- ASIS : 동시에 캐시 만료, data source 트래픽 쏠림
+
+![img_14.png](img_14.png)
+
+- TOBE : 캐시 만료 시간에 편차, data source 트래픽 분산
+
+![img_15.png](img_15.png)
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer
