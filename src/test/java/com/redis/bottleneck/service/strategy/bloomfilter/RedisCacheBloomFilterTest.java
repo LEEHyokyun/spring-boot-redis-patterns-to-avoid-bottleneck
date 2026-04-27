@@ -3,7 +3,7 @@ package com.redis.bottleneck.service.strategy.bloomfilter;
 import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.service.ArticleService;
-import com.redis.bottleneck.service.cache.RedisCachePenetrationBloomFilterService;
+import com.redis.bottleneck.service.redisCacheBloomfilter.RedisCachePenetrationBloomFilterService;
 import com.redis.bottleneck.utils.MySQLAndRedisIntegrationTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;

@@ -1,9 +1,9 @@
-package com.redis.bottleneck.service.cache;
+package com.redis.bottleneck.service.redisCacheBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomFilterHandler;
-import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomfilter;
-import com.redis.bottleneck.common.cache.service.RedisCacheService;
+import com.redis.bottleneck.common.bloomfilter.BloomFilter;
+import com.redis.bottleneck.common.bloomfilter.BloomFilterHandler;
 import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+import com.redis.bottleneck.common.cache.service.RedisCacheService;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;
 import com.redis.bottleneck.model.response.ArticlePageResponse;
@@ -14,23 +14,26 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class RedisCachePenetrationSplitBloomFilterService implements RedisCacheService {
+public class RedisCachePenetrationBloomFilterService implements RedisCacheService {
 
     private final ArticleService articleService;
-    private final SplitBloomFilterHandler splitBloomfilterHandler;
 
-    private static final SplitBloomfilter splitBloomfilter = SplitBloomfilter.create(
-            "split-bloom-filter:article",
-            1000,
-            0.01
+    private final BloomFilterHandler bloomFilterHandler;
+    private static final BloomFilter bloomFilter = BloomFilter.create(
+            "article", 1000, 0.01
     );
 
     @Override
     public ArticleResponse read(Long articleId) {
 
-        boolean result = splitBloomfilterHandler.mightContain(splitBloomfilter, String.valueOf(articleId));
+        boolean result = bloomFilterHandler.mightContain(bloomFilter, String.valueOf(articleId));
 
-        return (!result) ? null : articleService.read(articleId);
+        if(!result){
+            return null;
+        }
+
+        //bloom filter false positive -> service 호출
+        return articleService.read(articleId);
     }
 
     @Override
@@ -46,10 +49,9 @@ public class RedisCachePenetrationSplitBloomFilterService implements RedisCacheS
     @Override
     public ArticleResponse create(ArticleCreateRequest articleCreateRequest) {
 
-        ArticleResponse articleResponse = articleService.create(articleCreateRequest);
-        splitBloomfilterHandler.add(splitBloomfilter, String.valueOf(articleResponse.articleId()));
+        bloomFilterHandler.add(bloomFilter, String.valueOf(articleCreateRequest.articleId()));
 
-        return articleResponse;
+        return articleService.create(articleCreateRequest);
     }
 
     @Override
@@ -58,8 +60,8 @@ public class RedisCachePenetrationSplitBloomFilterService implements RedisCacheS
     }
 
     @Override
-    public void delete(long articleId) {
-        articleService.delete(articleId);
+    public void delete(long itemId) {
+        articleService.delete(itemId);
     }
 
     @Override
@@ -69,7 +71,6 @@ public class RedisCachePenetrationSplitBloomFilterService implements RedisCacheS
 
     @Override
     public boolean supports(CacheStrategy cacheStrategy) {
-        return CacheStrategy.SPLIT_BLOOM_FILTER == cacheStrategy;
+        return CacheStrategy.BLOOM_FILTER == cacheStrategy;
     }
-
 }

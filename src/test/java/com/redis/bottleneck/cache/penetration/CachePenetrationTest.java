@@ -2,7 +2,7 @@ package com.redis.bottleneck.cache.penetration;
 
 import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.service.ArticleService;
-import com.redis.bottleneck.service.cache.RedisCachePenetrationNullObjectPatternService;
+import com.redis.bottleneck.service.redisCacheBloomfilter.RedisCachePenetrationNullObjectPatternService;
 import com.redis.bottleneck.utils.ArticleEndPointCallUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;

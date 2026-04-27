@@ -1,4 +1,4 @@
-package com.redis.bottleneck.service.cache;
+package com.redis.bottleneck.service.redisCacheBloomfilter;
 
 import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
 import com.redis.bottleneck.common.cache.service.RedisCacheService;

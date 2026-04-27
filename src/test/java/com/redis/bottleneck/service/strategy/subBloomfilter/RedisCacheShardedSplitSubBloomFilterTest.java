@@ -1,14 +1,11 @@
 package com.redis.bottleneck.service.strategy.subBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
-import com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilter;
 import com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilterHandler;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.service.ArticleService;
-import com.redis.bottleneck.service.cache.RedisCachePenetrationSplitShardedSubFilterService;
+import com.redis.bottleneck.service.redisCacheBloomfilter.RedisCachePenetrationSplitShardedSubFilterService;
 import com.redis.bottleneck.utils.MySQLAndRedisIntegrationTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
