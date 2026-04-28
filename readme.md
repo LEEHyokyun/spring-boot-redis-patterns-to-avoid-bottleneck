@@ -162,8 +162,32 @@ bf:users → "0100100010010..." (bit array)
 - 분산락을 사용하는 등, 중복된 다수의 요청이 왔을때, 최초 요청에 대해서만 캐싱 갱신을 진행하는 것이 핵심.
   - 캐시 갱신 시 선행 요청의 갱신 실패 경우를 고려하여, 주기적 polling을 통해 갱신 여부 확인
   - 갱신 안되어있을 경우, 후행 요청이 갱신.
+- 굳이 기다리지 않고, 이전의 캐싱 데이터를 활용할 수도 있다.
 
 ※ 분산락과 데이터 key 혼용 유의
+
+## 5-2-4. Rate Limit
+
+![img_19.png](img_19.png)
+
+> data source 트래픽의 최대 허용 개수를 정책화
+- Jitter / PER / RC는 어찌되었든 최초 요청은 data source를 호출, 다양한 캐싱 데이터가 존재하는 대규모 트래픽 환경에서는 병목 유발 가능.
+- 애초에 data source에 접근 가능한 트래픽의 절대적 규모를 제한하여 시스템의 전면적인 장애 발생을 방지.
+
+> Multi Layer Rate Limiting
+- 병목은 datasource에서 발생하며, Application의 트래픽은 Caching에 의해 확장 가능성이 존재한다.
+- 단일 진입점 적용이 아닌, Caching의 효율적인 활용도 고려하면서 Token 분리(Dual Rate Limit) 및 적절한 분기처리 적용이 필요.
+  - cache miss 상황까지 고려하여, Application / datasource 등 각 지점에 대한 유연한 적용이 필요.
+
+![img_20.png](img_20.png)
+
+- Multi layer and aware caching (cache miss 시 datasource 요청 (*RL datasource 진입점 적용))
+  - 다수 진입점에 대한 Rate Limit 분리 운용, cache miss 시 캐시 데이터 갱신.  
+
+![img_21.png](img_21.png)
+
+- Multi layer and multi token
+  - 단순 허용 개수 이상의 트래픽 발생 시 그대로 요청 거부
 
 ## Appendix. Redis Architecturing
 
