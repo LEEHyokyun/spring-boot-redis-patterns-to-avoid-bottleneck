@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter.distributedLock;
+package com.redis.bottleneck.common.distributedLock;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;

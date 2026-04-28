@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.cache.strategy;
+package com.redis.bottleneck.common.strategy;
 
 public enum CacheStrategy {
     NONE,
@@ -9,5 +9,6 @@ public enum CacheStrategy {
     SPLIT_SHARDED_BLOOM_FILTER,
     SPLIT_SHARDED_SUB_BLOOM_FILTER,
     Jitter,
-    PER
+    PER,
+    REQUEST_COLLAPSING,
 }

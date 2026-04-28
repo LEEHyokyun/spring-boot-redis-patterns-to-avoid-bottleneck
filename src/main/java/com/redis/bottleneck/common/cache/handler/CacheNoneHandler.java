@@ -1,6 +1,6 @@
 package com.redis.bottleneck.common.cache.handler;
 
-import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+import com.redis.bottleneck.common.strategy.CacheStrategy;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;

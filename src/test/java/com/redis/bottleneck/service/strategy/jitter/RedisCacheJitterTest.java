@@ -1,8 +1,7 @@
 package com.redis.bottleneck.service.strategy.jitter;
 
 
-import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
-import com.redis.bottleneck.common.jitter.JitterHandler;
+import com.redis.bottleneck.common.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.service.ArticleService;
 import com.redis.bottleneck.service.jitter.RedisCacheJitterService;
@@ -18,7 +17,6 @@ import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;

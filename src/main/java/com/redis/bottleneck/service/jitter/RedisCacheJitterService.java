@@ -4,7 +4,7 @@ import com.redis.bottleneck.common.cache.aop.CacheEvict;
 import com.redis.bottleneck.common.cache.aop.CachePut;
 import com.redis.bottleneck.common.cache.aop.Cacheable;
 import com.redis.bottleneck.common.cache.service.RedisCacheService;
-import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+import com.redis.bottleneck.common.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;
 import com.redis.bottleneck.model.response.ArticlePageResponse;

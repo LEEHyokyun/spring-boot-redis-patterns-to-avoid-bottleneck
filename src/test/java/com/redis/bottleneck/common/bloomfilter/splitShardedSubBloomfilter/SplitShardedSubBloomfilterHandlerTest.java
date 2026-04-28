@@ -3,7 +3,7 @@ package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter;
 import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomFilterHandler;
 import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
 import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
-import com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter.distributedLock.DistributedLockProvider;
+import com.redis.bottleneck.common.distributedLock.DistributedLockProvider;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -12,10 +12,7 @@ import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
 import org.springframework.context.annotation.Import;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataRedisTest
 @Import(

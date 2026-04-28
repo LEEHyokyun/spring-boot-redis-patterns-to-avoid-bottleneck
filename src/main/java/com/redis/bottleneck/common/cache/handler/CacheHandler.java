@@ -1,6 +1,6 @@
 package com.redis.bottleneck.common.cache.handler;
 
-import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+import com.redis.bottleneck.common.strategy.CacheStrategy;
 
 import java.time.Duration;
 import java.util.function.Supplier;

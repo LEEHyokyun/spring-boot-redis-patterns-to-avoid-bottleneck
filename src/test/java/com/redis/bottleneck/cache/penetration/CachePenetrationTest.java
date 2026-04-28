@@ -1,6 +1,6 @@
 package com.redis.bottleneck.cache.penetration;
 
-import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+import com.redis.bottleneck.common.strategy.CacheStrategy;
 import com.redis.bottleneck.service.ArticleService;
 import com.redis.bottleneck.service.redisCacheBloomfilter.RedisCachePenetrationNullObjectPatternService;
 import com.redis.bottleneck.utils.ArticleEndPointCallUtil;

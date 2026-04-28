@@ -1,7 +1,7 @@
 package com.redis.bottleneck.common.per;
 
 import com.redis.bottleneck.common.cache.handler.CacheHandler;
-import com.redis.bottleneck.common.cache.strategy.CacheStrategy;
+import com.redis.bottleneck.common.strategy.CacheStrategy;
 import com.redis.bottleneck.common.serde.DataSerializer;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;

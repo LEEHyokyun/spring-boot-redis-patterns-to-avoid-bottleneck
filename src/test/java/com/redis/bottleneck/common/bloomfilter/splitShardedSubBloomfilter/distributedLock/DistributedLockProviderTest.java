@@ -1,5 +1,6 @@
 package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter.distributedLock;
 
+import com.redis.bottleneck.common.distributedLock.DistributedLockProvider;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -13,8 +14,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataRedisTest
 @Import(DistributedLockProvider.class)
