@@ -11,4 +11,5 @@ public enum CacheStrategy {
     Jitter,
     PER,
     REQUEST_COLLAPSING,
+    RATE_LIMIT,
 }
