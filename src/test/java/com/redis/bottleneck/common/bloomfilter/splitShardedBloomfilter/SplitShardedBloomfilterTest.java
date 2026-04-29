@@ -1,14 +1,13 @@
 package com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter;
 
 import com.google.common.hash.Hashing;
-import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitBloomfilter.SplitBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SplitShardedBloomfilterTest {
 

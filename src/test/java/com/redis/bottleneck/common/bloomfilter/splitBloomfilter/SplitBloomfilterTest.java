@@ -1,9 +1,8 @@
 package com.redis.bottleneck.common.bloomfilter.splitBloomfilter;
 
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitBloomfilter.SplitBloomfilter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SplitBloomfilterTest {
 

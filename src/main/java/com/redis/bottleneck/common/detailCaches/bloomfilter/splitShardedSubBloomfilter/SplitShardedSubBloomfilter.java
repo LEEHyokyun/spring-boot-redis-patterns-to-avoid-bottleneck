@@ -1,7 +1,6 @@
-package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter;
+package com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedSubBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
-import jakarta.persistence.Access;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

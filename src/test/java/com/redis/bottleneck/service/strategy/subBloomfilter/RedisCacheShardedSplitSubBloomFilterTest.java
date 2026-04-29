@@ -1,6 +1,6 @@
 package com.redis.bottleneck.service.strategy.subBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilterHandler;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.service.ArticleService;
 import com.redis.bottleneck.service.redisCacheBloomfilter.RedisCachePenetrationSplitShardedSubFilterService;

@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.bloomfilter;
+package com.redis.bottleneck.common.detailCaches.bloomfilter;
 
 import lombok.AccessLevel;
 import lombok.Getter;

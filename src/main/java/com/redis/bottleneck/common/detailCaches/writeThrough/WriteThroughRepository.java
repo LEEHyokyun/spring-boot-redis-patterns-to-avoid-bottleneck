@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.writeThrough;
+package com.redis.bottleneck.common.detailCaches.writeThrough;
 
 import com.redis.bottleneck.common.serde.DataSerializer;
 import lombok.RequiredArgsConstructor;

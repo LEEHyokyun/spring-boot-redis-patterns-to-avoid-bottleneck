@@ -1,7 +1,7 @@
-package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter;
+package com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedSubBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
 import com.redis.bottleneck.common.distributedLock.DistributedLockProvider;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

@@ -2,6 +2,7 @@ package com.redis.bottleneck.common.requestCollapsing;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.redis.bottleneck.common.detailCaches.requestCollapsing.RequestCollapsingHandler;
 import com.redis.bottleneck.common.distributedLock.DistributedLockProvider;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -21,7 +22,6 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Supplier;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 @Slf4j

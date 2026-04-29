@@ -1,5 +1,6 @@
 package com.redis.bottleneck.common.rateLimit;
 
+import com.redis.bottleneck.common.detailCaches.rateLimit.RateLimiter;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -9,7 +10,6 @@ import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
 import org.springframework.context.annotation.Import;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 @DataRedisTest

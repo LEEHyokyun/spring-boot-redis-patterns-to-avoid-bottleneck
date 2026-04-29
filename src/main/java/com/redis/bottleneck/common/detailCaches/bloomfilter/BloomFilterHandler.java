@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.bloomfilter;
+package com.redis.bottleneck.common.detailCaches.bloomfilter;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.connection.StringRedisConnection;

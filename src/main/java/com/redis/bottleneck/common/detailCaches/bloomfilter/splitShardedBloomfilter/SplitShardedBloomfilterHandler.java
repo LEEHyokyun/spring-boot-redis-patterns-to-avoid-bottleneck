@@ -1,7 +1,7 @@
-package com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter;
+package com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomFilterHandler;
-import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitBloomfilter.SplitBloomFilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitBloomfilter.SplitBloomfilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

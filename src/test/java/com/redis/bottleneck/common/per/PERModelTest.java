@@ -1,5 +1,6 @@
 package com.redis.bottleneck.common.per;
 
+import com.redis.bottleneck.common.detailCaches.per.PERModel;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -8,7 +9,6 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @Slf4j
 class PERModelTest {

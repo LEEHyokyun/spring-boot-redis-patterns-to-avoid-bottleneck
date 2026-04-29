@@ -1,24 +1,19 @@
 package com.redis.bottleneck.common.bloomfilter;
 
+import com.redis.bottleneck.common.detailCaches.bloomfilter.BloomFilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.BloomFilterHandler;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
-import org.testcontainers.junit.jupiter.Testcontainers;
 
 import java.time.Duration;
 import java.util.List;
 import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataRedisTest
 @Import(BloomFilterHandler.class)

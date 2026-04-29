@@ -1,7 +1,7 @@
 package com.redis.bottleneck.service.redisCacheBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
 import com.redis.bottleneck.common.cache.service.RedisCacheService;
 import com.redis.bottleneck.common.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;

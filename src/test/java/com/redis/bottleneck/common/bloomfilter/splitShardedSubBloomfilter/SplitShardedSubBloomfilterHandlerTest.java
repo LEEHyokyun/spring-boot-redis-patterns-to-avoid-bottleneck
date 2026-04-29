@@ -1,8 +1,10 @@
 package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitBloomfilter.SplitBloomFilterHandler;
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitBloomfilter.SplitBloomFilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilterHandler;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilterHandler;
 import com.redis.bottleneck.common.distributedLock.DistributedLockProvider;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import org.junit.jupiter.api.Assertions;

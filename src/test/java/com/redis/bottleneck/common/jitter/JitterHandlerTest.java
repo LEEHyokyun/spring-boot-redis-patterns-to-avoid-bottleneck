@@ -1,5 +1,6 @@
 package com.redis.bottleneck.common.jitter;
 
+import com.redis.bottleneck.common.detailCaches.jitter.JitterHandler;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Assertions;
@@ -8,9 +9,7 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
 import org.springframework.context.annotation.Import;
-import org.springframework.test.context.bean.override.mockito.MockitoSpyBean;
 import org.testcontainers.shaded.com.fasterxml.jackson.core.JsonProcessingException;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;

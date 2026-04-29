@@ -1,30 +1,17 @@
 package com.redis.bottleneck.common.writeThrough;
 
-import com.redis.bottleneck.common.serde.DataSerializer;
-import com.redis.bottleneck.model.domain.Article;
-import com.redis.bottleneck.model.request.ArticleCreateRequest;
+import com.redis.bottleneck.common.detailCaches.writeThrough.WriteThroughRepository;
 import com.redis.bottleneck.utils.RedisTestContainerSupportUtil;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Data;
 import lombok.Getter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.redis.DataRedisTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
-import org.testcontainers.shaded.com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.stream.IntStream;
 import java.util.stream.LongStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 @DataRedisTest
 @Import(WriteThroughRepository.class)

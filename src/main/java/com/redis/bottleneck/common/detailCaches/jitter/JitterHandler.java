@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.jitter;
+package com.redis.bottleneck.common.detailCaches.jitter;
 
 import com.redis.bottleneck.common.cache.handler.CacheHandler;
 import com.redis.bottleneck.common.strategy.CacheStrategy;

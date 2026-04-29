@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.rateLimit;
+package com.redis.bottleneck.common.detailCaches.rateLimit;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.redis.core.StringRedisTemplate;

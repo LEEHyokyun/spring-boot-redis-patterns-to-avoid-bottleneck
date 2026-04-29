@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.requestCollapsing;
+package com.redis.bottleneck.common.detailCaches.requestCollapsing;
 
 import com.redis.bottleneck.common.cache.handler.CacheHandler;
 import com.redis.bottleneck.common.distributedLock.DistributedLockProvider;

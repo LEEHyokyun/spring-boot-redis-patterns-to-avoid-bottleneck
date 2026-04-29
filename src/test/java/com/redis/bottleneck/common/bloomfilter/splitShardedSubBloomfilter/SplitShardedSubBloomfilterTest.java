@@ -1,12 +1,11 @@
 package com.redis.bottleneck.common.bloomfilter.splitShardedSubBloomfilter;
 
-import com.redis.bottleneck.common.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedBloomfilter.SplitShardedBloomfilter;
+import com.redis.bottleneck.common.detailCaches.bloomfilter.splitShardedSubBloomfilter.SplitShardedSubBloomfilter;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class SplitShardedSubBloomfilterTest {
 

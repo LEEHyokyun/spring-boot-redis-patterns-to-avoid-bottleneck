@@ -1,7 +1,7 @@
 package com.redis.bottleneck.service.rateLimit;
 
 import com.redis.bottleneck.common.cache.service.RedisCacheService;
-import com.redis.bottleneck.common.rateLimit.RateLimiter;
+import com.redis.bottleneck.common.detailCaches.rateLimit.RateLimiter;
 import com.redis.bottleneck.common.strategy.CacheStrategy;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;

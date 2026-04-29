@@ -1,7 +1,6 @@
-package com.redis.bottleneck.common.bloomfilter.splitBloomfilter;
+package com.redis.bottleneck.common.detailCaches.bloomfilter.splitBloomfilter;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.redis.cache.RedisCache;
 import org.springframework.data.redis.connection.StringRedisConnection;
 import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -9,7 +8,6 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 @Component

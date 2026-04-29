@@ -1,4 +1,4 @@
-package com.redis.bottleneck.common.per;
+package com.redis.bottleneck.common.detailCaches.per;
 
 import com.redis.bottleneck.common.cache.handler.CacheHandler;
 import com.redis.bottleneck.common.strategy.CacheStrategy;

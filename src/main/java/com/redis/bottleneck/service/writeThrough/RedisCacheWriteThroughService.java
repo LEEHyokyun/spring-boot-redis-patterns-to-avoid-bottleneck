@@ -1,17 +1,12 @@
 package com.redis.bottleneck.service.writeThrough;
 
-import com.redis.bottleneck.common.cache.service.CacheService;
 import com.redis.bottleneck.common.cache.service.RedisCacheService;
 import com.redis.bottleneck.common.strategy.CacheStrategy;
-import com.redis.bottleneck.common.writeThrough.WriteThroughRepository;
+import com.redis.bottleneck.common.detailCaches.writeThrough.WriteThroughRepository;
 import com.redis.bottleneck.model.request.ArticleCreateRequest;
 import com.redis.bottleneck.model.request.ArticleUpdateRequest;
-import com.redis.bottleneck.model.request.ItemCreateRequest;
-import com.redis.bottleneck.model.request.ItemUpdateRequest;
 import com.redis.bottleneck.model.response.ArticlePageResponse;
 import com.redis.bottleneck.model.response.ArticleResponse;
-import com.redis.bottleneck.model.response.ItemPageResponse;
-import com.redis.bottleneck.model.response.ItemResponse;
 import com.redis.bottleneck.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
