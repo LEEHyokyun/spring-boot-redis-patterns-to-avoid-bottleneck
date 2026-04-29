@@ -29,7 +29,7 @@ public class RateLimiter {
         if(count <= limit)
             return true;
 
-        //ttl 설정 오류 시를 대비한 방어 로직
+        //ttl 설정 오류 시를 대비한 방어 로직 + 향후 또 다른 TPS에 대한 대응
         if(count % (limit / 10) == 1 && stringRedisTemplate.getExpire(key) == -1){
             stringRedisTemplate.expire(key, Duration.ofSeconds(perSeconds));
         }
