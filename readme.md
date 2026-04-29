@@ -189,6 +189,14 @@ bf:users → "0100100010010..." (bit array)
 - Multi layer and multi token
   - 단순 허용 개수 이상의 트래픽 발생 시 그대로 요청 거부
 
+## 5-2-5. Write Through
+
+![img_22.png](img_22.png)
+
+> 데이터가 필요한 시점에 모든 데이터를 캐싱하는 것이 아니라, 생성/삭제/수정 시점에 단건 데이터를 실시간으로 캐싱하는 전략.
+- 실시간으로 단건 데이터를 반영하여, **필요한 소수의 데이터에 대해서만 캐싱을 유지하는 것이 핵심.**
+- 노출 빈도가 높은 hot data에 대하여 data source의 병목을 방지하고, 미리 캐싱하여 cache hit를 극대화한다.
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer
