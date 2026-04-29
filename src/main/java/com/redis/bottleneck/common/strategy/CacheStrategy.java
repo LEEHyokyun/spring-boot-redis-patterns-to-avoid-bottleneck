@@ -12,4 +12,5 @@ public enum CacheStrategy {
     PER,
     REQUEST_COLLAPSING,
     RATE_LIMIT,
+    WRITE_THROUGH,
 }
