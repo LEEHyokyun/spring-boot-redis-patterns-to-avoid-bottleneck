@@ -198,6 +198,15 @@ bf:users → "0100100010010..." (bit array)
 - 노출 빈도가 높은 hot data에 대하여 data source의 병목을 방지하고, 미리 캐싱하여 cache hit를 극대화한다.
   - 단건 데이터, hot data 조회의 근원인 sorted set의 정합성을 고려하는 것도 필요.
 
+## Appendix. Seperated(Sharded) Application for Hot Key
+
+- data source에 병목을 주는 원인은 대규모 트래픽, 그리고 조회율이 높은 Hot Data.
+- Redis Caching 처리를 하더라도, Hot data는 곧 Redis 부하 부담을 의미한다.
+  - 데이터 규모가 크더라도, 활용도가 높은 데이터는 소수의 10%.
+
+> Hot Key, Hot Data 연산에 집중하는 별도의 서버, Application을 두어 부하를 분담하자.
+- 즉, 핵심은 Application level에서 추가적인 샤딩 등을 통해 부하 분산을 이끌어내는 것.
+
 ## Appendix. Redis Architecturing
 
 - RedisConfig / DataSerializer / DataDeserializer
