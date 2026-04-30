@@ -66,6 +66,7 @@ public class ApplicationShardingReplicationTest extends MySQLAndRedisIntegration
                 * auto increment -> db에 주입되는 id는 1부터 시작한다.
                 * */
                 redisCacheApplicationShardingReplicationService.read(j + 1);
+                //testable -> .read(articleResponse.getArticleId()) ..
             }
         }
 
