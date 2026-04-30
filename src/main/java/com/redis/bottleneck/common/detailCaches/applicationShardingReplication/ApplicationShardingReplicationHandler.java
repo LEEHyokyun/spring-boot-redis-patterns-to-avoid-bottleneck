@@ -45,6 +45,9 @@ public class ApplicationShardingReplicationHandler implements CacheHandler {
 
     private <T> T refresh(String key, Duration ttl, Supplier<T> supplier) {
         T originalData = supplier.get();
+
+        log.info("[ApplicationShardingReplicationHandler] fetch original data : {}", originalData);
+
         this.put(key, ttl, originalData);
 
         return originalData;
@@ -72,6 +75,9 @@ public class ApplicationShardingReplicationHandler implements CacheHandler {
 
     @Override
     public boolean supports(CacheStrategy cacheStrategy) {
+        /*
+        * APPLICATION_HOT_KEY_SHARDING_AND_REPLICATION:article:{#articleId}:{#shardIndex}
+        * */
         return CacheStrategy.APPLICATION_HOT_KEY_SHARDING_AND_REPLICATION == cacheStrategy;
     }
 }

@@ -16,6 +16,7 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
 
     public ArticleResponse read(Long articleId){
+
         return ArticleResponse.from(
                 articleRepository.findById(articleId)
                         .orElse(null)
