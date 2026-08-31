@@ -1,18 +1,23 @@
-## 1.  개요
+**자세한 내용은 벨로그를 통해 자세히 기술 :**
+- [DB부하분산 :  Redis 시리즈 #1](https://velog.io/@gyrbs22/%EB%B0%B1%EC%97%94%EB%93%9C-Redis%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0Redis%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%EA%B0%80%EB%8A%A5%ED%95%9C-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%8B%A4%EB%AC%B4%EC%A0%81-%EC%83%81%ED%99%A9%EA%B3%BC-%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-Trouble-Shootings-3-TDD%EA%B8%B0%EB%B0%98%EC%9D%98-Redis-Patterns-trouble-Shootings-1)
+- [DB부하분산 : Reids 시리즈 #2](https://velog.io/@gyrbs22/%EB%B0%B1%EC%97%94%EB%93%9C-Redis%EC%97%90-%EB%8C%80%ED%95%9C-%EA%B3%A0%EC%B0%B0Redis%EC%97%90%EC%84%9C-%EB%B0%9C%EC%83%9D%EA%B0%80%EB%8A%A5%ED%95%9C-%EB%8B%A4%EC%96%91%ED%95%9C-%EC%8B%A4%EB%AC%B4%EC%A0%81-%EC%83%81%ED%99%A9%EA%B3%BC-%EC%9D%B4%EC%97%90-%EB%8C%80%ED%95%9C-Trouble-Shootings-4-TDD%EA%B8%B0%EB%B0%98%EC%9D%98-Redis-Patterns-trouble-Shootings-2)
+- [WAS 부하 조절 : Circuit Breaker/Semaphore Bulkhead](https://velog.io/@gyrbs22/%EB%B0%B1%EC%97%94%EB%93%9C-%EB%B6%84%EC%82%B0-%ED%8A%B8%EB%9E%9C%EC%9E%AD%EC%85%98-Trouble-ShootingCircuit-Breaker-%EB%B0%8F-MSA-%EC%84%9C%EB%B2%84-%EB%B3%84-%EB%B6%84%EC%82%B0%EC%B6%94%EC%A0%81%EB%AA%A8%EB%8B%88%ED%84%B0%EB%A7%81-%ED%99%98%EA%B2%BD-%EA%B5%AC%EC%84%B1-%EB%B0%A9%EC%95%88)
 
-- Java ver 21.
-- Spring Boot ver 3.5.6
-- Redis ver 8.2.1
-- MySQL ver 8.0.42
+## 1. Project 개요
 
-## 2. Projects
+본 Trouble Shootings은 "부하"가 과도하게 집중되는 상황에서 분산 / 조절의 관점에서 성능을 개선할 수 있는 요건을 살펴본다.
 
-- redis 사상 및 목적에 맞는, 그러면서도 병목 현상을 줄이기 위한 다양한 pattern 적용 방안
-- spring boot project
+> DB에 가해지는 부하가 과도하여 WAS 병목 및 시스템 처리 지연까지 유발할때, 어떻게 대처해야 하는가?
+
+> WAS에 가해지는 부하가 시스템 성능에 맞지 않게 과도하여 트래픽 규모를 조절할 필요가 있다면?
+
+세부적으로,
+- redis 사상 및 목적에 맞으면서 DB의 병목을 감소할 수 있는 Redis Patterns 적용 방안
 - TDD
   - Test Configuration / Util과 의존성 테스트, 단위 테스트, 통합 테스트 등 
   - 목적에 맞게 테스트 책임 분리하여 진행.
 
+에 대해 부수적으로 같이 살펴보도록 한다.
 
 ## 3. Architecturing
 
