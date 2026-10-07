@@ -20,7 +20,7 @@ public class RedisCacheController {
     public ArticleResponse read(
             @PathVariable CacheStrategy cacheStrategy,
             @PathVariable Long articleId
-    ){
+    ) {
         return this.getCacheService(cacheStrategy).read(articleId);
     }
 
@@ -30,7 +30,7 @@ public class RedisCacheController {
             @RequestParam Long boardId,
             @RequestParam Long page,
             @RequestParam Long pageSize
-    ){
+    ) {
         return this.getCacheService(cacheStrategy).readAll(boardId, page, pageSize);
     }
 
@@ -40,7 +40,7 @@ public class RedisCacheController {
             @RequestParam Long boardId,
             @RequestParam(required = false) Long lastArticleId,
             @RequestParam Long pageSize
-    ){
+    ) {
         return this.getCacheService(cacheStrategy).readAllInfiniteScroll(boardId, lastArticleId, pageSize);
     }
 
@@ -48,7 +48,7 @@ public class RedisCacheController {
     public ArticleResponse create(
             @PathVariable CacheStrategy cacheStrategy,
             @RequestBody ArticleCreateRequest articleCreateRequest
-    ){
+    ) {
         return this.getCacheService(cacheStrategy).create(articleCreateRequest);
     }
 
@@ -57,7 +57,7 @@ public class RedisCacheController {
             @PathVariable CacheStrategy cacheStrategy,
             @PathVariable Long articleId,
             @RequestBody ArticleUpdateRequest articleUpdateRequest
-    ){
+    ) {
         return this.getCacheService(cacheStrategy).update(articleId, articleUpdateRequest);
     }
 
@@ -65,7 +65,7 @@ public class RedisCacheController {
     public void delete(
             @PathVariable CacheStrategy cacheStrategy,
             @PathVariable Long articleId
-    ){
+    ) {
         this.getCacheService(cacheStrategy).delete(articleId);
     }
 
@@ -73,15 +73,9 @@ public class RedisCacheController {
     public long count(
             @PathVariable CacheStrategy cacheStrategy,
             @PathVariable Long boardId
-    ){
+    ) {
         return this.getCacheService(cacheStrategy).count(boardId);
     }
 
-    private RedisCacheService getCacheService(CacheStrategy cacheStrategy){
-        return cacheServices.stream()
-                .filter(cacheService -> cacheService.supports(cacheStrategy))
-                .findFirst()
-                .orElseThrow()
-                ;
-    }
+}/
 }
